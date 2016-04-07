@@ -9,8 +9,10 @@
     </head>
     <body>
 
-        <fmt:setLocale value="${param.lang}" />
-        <fmt:setBundle basename="general.properties.messages" />
+        <c:if test="${not empty param.lang}">
+            <fmt:setLocale value="${param.lang}" />
+            <fmt:setBundle basename="general.properties.messages" />
+        </c:if>
         
         <h1><fmt:message key="site.titulo"/></h1>
         
