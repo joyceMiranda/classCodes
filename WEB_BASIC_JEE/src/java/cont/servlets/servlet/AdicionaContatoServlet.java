@@ -4,7 +4,6 @@ import cont.servlets.bean.Contato;
 import cont.servlets.dao.ContatoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,8 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 public class AdicionaContatoServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) 
-            throws ServletException, IOException {    
-
+            throws ServletException, IOException { 
             /******* log *******/
             System.out.println("Criando um novo contato");            
             /*******acessando bean *******/
