@@ -18,6 +18,6 @@ public class ListaContatoLogica implements Logica {
         //armazena lista em um request
         request.setAttribute("listaContatos", listaContatos);
         
-        return "view/formListaContato.jsp";       
+        return "cont.mvc.page/formListaContato.jsp";       
     }    
 }
