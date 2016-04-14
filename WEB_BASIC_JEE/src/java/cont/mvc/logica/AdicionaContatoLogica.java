@@ -33,7 +33,7 @@ public class AdicionaContatoLogica implements Logica{
             ContatoDAO dao = new ContatoDAO(connection);
             dao.addContato(contato);            
             /*******  ok *******/
-           return "view/contato-adicionado.jsp";
+           return "cont.mvc.page/contato-adicionado.jsp";
     }    
 
    

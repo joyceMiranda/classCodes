@@ -4,7 +4,6 @@ import cont.mvc.bean.Contato;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
-import cont.mvc.connection.ConnectionFactory;
 
 /**
  *
@@ -16,7 +15,7 @@ public class ContatoDAO {
     
     /** estabelece conexao **/
     public ContatoDAO(){
-        connection = ConnectionFactory.getConnection();
+        //connection = ConnectionFactory.getConnection();
     }
     
     /** continua **/
@@ -28,7 +27,8 @@ public class ContatoDAO {
        
     public boolean addContato(Contato contato){
         //simulando sucesso de inserção no BD
-        
+         return true;
+         
         /*
         public boolean adicionaTarefa(Tarefa tarefa){
        String sql = "insert into tarefas " +
@@ -52,7 +52,7 @@ public class ContatoDAO {
         */
         
         
-        return true;
+       
     }
     
     public List<Contato> getListaContatos(){

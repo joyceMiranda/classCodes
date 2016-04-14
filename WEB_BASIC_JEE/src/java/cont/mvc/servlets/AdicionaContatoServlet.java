@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import cont.mvc.bean.Contato;
 import cont.mvc.dao.ContatoDAO;
 
-@WebServlet("/adicionaContato")
+@WebServlet("/adicionaContatoMVC")
 public class AdicionaContatoServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) 

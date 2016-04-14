@@ -1,6 +1,6 @@
 <html>
     <body>
-        <form action="mvc?logica=AdicionaContatoLogica" method="post">
+        <form action="../mvc?logica=AdicionaContatoLogica" method="post">
             Nome: <input type="text" name="nome">
             <br><br>
             Email: <input type="text" name="email">

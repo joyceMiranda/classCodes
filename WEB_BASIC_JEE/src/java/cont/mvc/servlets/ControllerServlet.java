@@ -12,7 +12,7 @@ import cont.mvc.logica.Logica;
 @WebServlet("/mvc")
 public class ControllerServlet extends HttpServlet{
 
-    String pacote = "mvc.logica.";
+    String pacote = "cont.mvc.logica.";
     
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) 
@@ -21,7 +21,7 @@ public class ControllerServlet extends HttpServlet{
         String acao = request.getParameter("logica");
         String nomeClasse = pacote + acao;
         
-        System.out.println(nomeClasse);
+        System.out.println("-->" + nomeClasse);
         
         try {
             Class<?> classe = Class.forName(nomeClasse);
