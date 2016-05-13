@@ -7,6 +7,7 @@
 	$dao = new UsuarioDAO();
 	$loginCorreto = $dao->validaLogin($login, $senha);
 
+
 	if($loginCorreto){
 	    $_SESSION["logado"] = true;
 		header("location:../forms/formCadUsuario.php");
