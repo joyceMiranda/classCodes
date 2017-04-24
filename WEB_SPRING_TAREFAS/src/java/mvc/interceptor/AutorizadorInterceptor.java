@@ -22,8 +22,14 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter {
             Object controller) throws Exception {
         
         String uri = request.getRequestURI();
-        
-        if( !uri.endsWith("menuAdm") ){
+        String contextPath = request.getContextPath();
+
+        if( uri.endsWith(contextPath) 
+            || uri.contains("index")
+            || uri.contains("formLogin")
+            || uri.contains("efetuaLogin")
+            || uri.contains("listaTarefas")
+            || uri.contains("resources")){
             return true;
         }
         

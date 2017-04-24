@@ -24,6 +24,6 @@
             <input type="submit" value="Alterar"/>
             <br><br>            
         </form>
-        <a href="<c:url value='/'/>">Voltar</a>
+        <a href="<c:url value='/index'/>">Voltar</a>
     </body>
 </html>

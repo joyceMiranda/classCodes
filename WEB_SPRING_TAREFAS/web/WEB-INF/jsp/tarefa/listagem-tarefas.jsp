@@ -10,7 +10,7 @@
     <body>
         
         
-        <a href="<c:url value='/'/>">Voltar</a> <br><br>
+        <a href="<c:url value='/index'/>">Voltar</a> <br><br>
         <table>
             <tr>
                 <th>Id</th>

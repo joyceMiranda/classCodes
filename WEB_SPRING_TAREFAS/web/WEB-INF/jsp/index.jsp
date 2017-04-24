@@ -5,8 +5,6 @@
     "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <body>
-      <a href="<c:url value='/formAdicionaTarefa'/>">Adicionar Tarefa</a>
-      <br><br>
       <a href="<c:url value='/listaTarefas'/>">Listagem de Tarefa</a>
       <br><br>
       <a href="<c:url value='/menuAdm'/>">Área Administrativa</a>
