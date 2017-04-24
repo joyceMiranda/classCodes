@@ -16,7 +16,8 @@
         
         <h1><fmt:message key="site.titulo"/></h1>
         
-        <form action="adicionaUsuario" method="post">
+        <form method="post" 
+              action="${pageContext.request.contextPath}/adicionaUsuario" >
             <fmt:message key="campo.email"/>
             <input type="text" name="email">
             <br><br>

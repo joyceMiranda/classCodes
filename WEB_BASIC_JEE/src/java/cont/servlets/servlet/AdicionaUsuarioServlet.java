@@ -20,6 +20,8 @@ public class AdicionaUsuarioServlet extends HttpServlet{
             HttpServletResponse response) 
             throws ServletException, IOException {
         
+        
+        
         //recuperando valores
         String email = request.getParameter("email");
         String senha = request.getParameter("senha");

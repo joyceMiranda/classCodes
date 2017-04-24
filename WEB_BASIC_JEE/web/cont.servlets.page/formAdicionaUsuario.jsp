@@ -6,7 +6,8 @@ and open the template in the editor.
 -->
 <html>
     <body>
-        <form action="../adicionaUsuario" method="post">
+        <form method="post"
+              action="${pageContext.request.contextPath}/adicionaUsuario" >
             Email: <input type="text" name="email">
             <br><br>
             Senha: <input type="password" name="senha">
