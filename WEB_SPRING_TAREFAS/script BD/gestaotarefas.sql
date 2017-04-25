@@ -22,7 +22,7 @@ CREATE TABLE tarefas(
 -- Table structure for table 'usuarios'
 --
 
-CREATE TABLE usuarioss (
+CREATE TABLE usuarios (
   id bigint NOT NULL AUTO_INCREMENT,
   login varchar(15) NOT NULL,
   senha varchar(8) NOT NULL,
