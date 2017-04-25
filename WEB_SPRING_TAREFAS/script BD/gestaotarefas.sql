@@ -1,7 +1,9 @@
 --
 -- Database: 'gestaotarefas'
 --
+CREATE DATABASE gestaotarefas;
 
+use gestaotarefas;
 -- --------------------------------------------------------
 
 --
