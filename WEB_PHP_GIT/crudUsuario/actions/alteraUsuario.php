@@ -5,7 +5,7 @@
 	
 	$usuario = new Usuario();
 	
-	$usuario->idUsuario = $_POST["txtIdUsuario"];	
+	$usuario->idUsuario     = $_POST["txtIdUsuario"];	
 	$usuario->nome  	= $_POST["txtNome"];
 	$usuario->login 	= $_POST["txtLogin"];
 	$usuario->senha 	= $_POST["txtSenha"];
