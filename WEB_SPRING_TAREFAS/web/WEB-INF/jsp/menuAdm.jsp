@@ -15,6 +15,10 @@
         <br><br>
         <a href="<c:url value='/formAdicionaTarefa'/>">Adicionar Tarefa</a>
         <br><br>
+        <a href="<c:url value='/formAdicionaUsuario'/>">Adicionar Usuário</a>
+        <br><br>
+        <a href="<c:url value='/listaUsuarios'/>">Listagem de Usuários</a>
+        <br><br>
         <a href="<c:url value='/logout'/>">Sair</a>
         <a href="<c:url value='/'/>">Voltar</a>
     </body>

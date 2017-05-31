@@ -31,6 +31,11 @@ public class LoginController  {
         return "formularioLogin";
     }
     
+    @RequestMapping("/adm")
+    public String formMenuAdm(){
+        return "menuAdm";
+    }
+    
     @RequestMapping("/efetuaLogin")
     public String efetuaLogin(Usuario user, HttpSession session){
         if(dao.validaUsuario(user)){

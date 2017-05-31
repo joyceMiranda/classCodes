@@ -12,6 +12,7 @@ public class Usuario implements Serializable{
     private int id;
     private String login;
     private String senha;
+    private String photo;
 
     public Usuario() {}
     
@@ -36,5 +37,13 @@ public class Usuario implements Serializable{
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+    
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 }

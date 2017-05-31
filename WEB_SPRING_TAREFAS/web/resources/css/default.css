@@ -11,3 +11,8 @@ th, tr, td{
 div.msgErro{
     color:red;
 }
+
+.photo{
+    width: 1.5cm;
+    height: 2.0cm;
+}

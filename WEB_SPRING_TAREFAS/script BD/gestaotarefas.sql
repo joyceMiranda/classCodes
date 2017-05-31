@@ -28,6 +28,9 @@ CREATE TABLE usuarios (
   id bigint NOT NULL AUTO_INCREMENT,
   login varchar(15) NOT NULL,
   senha varchar(8) NOT NULL,
+  photo varchar(100) NOT NULL,
    primary key (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `gestaotarefas`.`usuarios` (`id`, `login`, `senha`, `photo`) VALUES ('1', 'admin', '123', '\resources\photos\3x4.jpg');
 
