@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Gerenciador de Categorias</title>
+    <style>
+        #footer{text-align: center}
+    </style>
+</h:head>
+<h:body>
+    <h1>Gerenciador de Categorias</h1>
+    <p:growl id="messages"/>
+
+    <h:form>
+    <p:panelGrid columns="2">
+        
+        <h:outputText value="Nome" />
+        <p:inputText value="#{categoriaController.categoria.nome}"/>
+        
+        <f:facet name="footer">
+            <h:panelGroup style="display:block; text-align:center">
+                <p:commandButton rendered="#{categoriaController.action eq 'add'}" style="margin: auto" action="#{categoriaController.adicionarCategoria}" value="Cadastrar Categoria"/>
+                <p:commandButton rendered="#{categoriaController.action eq 'edt'}"  style="margin: auto" action="#{categoriaController.alterarCategoria}" value="Alterar Categoria"/>
+            </h:panelGroup>
+        </f:facet>
+        
+    </p:panelGrid>
+    
+    <br/>
+        
+    <p:commandButton action="indexCategoria" value="Voltar"/>
+    
+    </h:form>
+</h:body>
+</html>

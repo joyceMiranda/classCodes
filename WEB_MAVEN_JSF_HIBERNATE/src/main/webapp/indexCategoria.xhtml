@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Gerenciador de Categorias</title>
+    </h:head>
+    <h:body>
+        <h1>Gerenciador de Categorias</h1>
+        <p:growl id="messages" sticky="true" autoUpdate="true" />
+    
+        <h:form>
+            <p:outputLabel value="Categoria:" /> &nbsp;
+            <p:inputText value="#{categoriaController.categoriaBuscada}"  /> &nbsp;
+            <p:commandButton actionListener="#{categoriaController.buscarCategorias}" value="Buscar" update="@form" />
+            
+            <br/><br/>
+        
+            <p:dataTable value="#{categoriaController.listarCategorias}"  var="categoria"  style="width: 80%; margin: auto">
+                <p:column style="width: 25%">
+                    <f:facet name="header">
+                        <h:outputText value="Nome"/>
+                    </f:facet>
+                    <h:outputText value="#{categoria.nome}" />
+                </p:column>
+                <p:column style="text-align: center">
+                    <f:facet name="header">
+                        <h:outputText value="Alterar"/>
+                    </f:facet>
+                        <h:commandButton action="#{categoriaController.prepararAlterarCategoria}" value="Alterar"/>
+                </p:column>
+                <p:column style="text-align: center">
+                    <f:facet name="header">
+                        <h:outputText value="Excluir"/>
+                    </f:facet>
+                        <h:commandButton action="#{categoriaController.excluirCategoria}" value="Excluir"/>
+                </p:column>
+            </p:dataTable>
+
+            <br/>
+
+            <p:commandButton value="Nova Categoria" action="#{categoriaController.prepararAdicionarCategoria}"/>
+            <p:commandButton value="Voltar" action="index" />
+        </h:form>
+    </h:body>
+</html>
+
