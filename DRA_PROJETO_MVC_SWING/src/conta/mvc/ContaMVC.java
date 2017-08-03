@@ -7,7 +7,7 @@ package conta.mvc;
 
 import conta.model.ContaModel;
 import conta.view.ContaView;
-import contaController.ContaController;
+import conta.controller.ContaController;
 
 /**
  *
