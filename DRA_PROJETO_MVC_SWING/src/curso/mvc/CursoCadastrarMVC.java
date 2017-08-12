@@ -16,11 +16,11 @@ import curso.view.CursoCadastrarView;
 public class CursoCadastrarMVC {
     
     public static void main(String[] args){
-        Curso theModel = new Curso();
         CursoCadastrarView theView = new CursoCadastrarView();
+        Curso curso = new Curso(); //camada model
         
         CursoCadastrarController theController = 
-                new CursoCadastrarController(theModel, theView);
+                new CursoCadastrarController(theView, curso);
         
         theView.setVisible(true);
     }

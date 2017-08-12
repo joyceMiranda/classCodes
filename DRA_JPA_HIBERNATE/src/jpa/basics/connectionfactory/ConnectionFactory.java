@@ -12,7 +12,7 @@ public class ConnectionFactory {
             if(entityManagerFactory==null|| !entityManagerFactory.isOpen()){
                 System.out.println("Criando EntityManager....");
                 entityManagerFactory = 
-                Persistence.createEntityManagerFactory("SysControleAcademicoJPA");
+                Persistence.createEntityManagerFactory("DRA_PROJETO_JSF_JPA_PRIMEFACES");
             }
             return entityManagerFactory.createEntityManager();
 	}

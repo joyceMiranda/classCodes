@@ -13,12 +13,12 @@ import java.awt.event.ActionListener;
 
 public class CursoCadastrarController {
     
-    Curso theModel;
     CursoCadastrarView theView;
+    Curso curso; //camada model
     
-    public CursoCadastrarController(Curso theModel, CursoCadastrarView theView){
-        this.theModel = theModel;
-        this.theView = theView;        
+    public CursoCadastrarController(CursoCadastrarView theView, Curso curso){
+        this.theView = theView;   
+        this.curso = curso;
         theView.addBtnCadastrarEventListener(new CadastrarCursoListener());
     }
     
@@ -28,11 +28,11 @@ public class CursoCadastrarController {
             String  sigla = theView.getTxtSigla();
             String  descricao = theView.getTxtDescricao();            
             
-            theModel.setSigla(sigla);
-            theModel.setDescricao(descricao);
+            curso.setSigla(sigla);
+            curso.setDescricao(descricao);
             
             CursoDAO dao = new CursoDAO();
-            boolean cadastrou = dao.cadastrar(theModel);
+            boolean cadastrou = dao.cadastrar(curso);
             
             if(cadastrou){
                 theView.showMessage("Cadastro realizado com sucesso");
