@@ -20,13 +20,13 @@ public class DataLoader {
         return (int) Math.round(Math.random() * 100);
     }
 
-    public static List<Aniversario> addAniversario(Aniversario aniversario){
+    public static boolean addAniversario(Aniversario aniversario){
         lista.add(aniversario);
-        return lista;
+        return true;
     } 
     
-    public static List<Aniversario> delAniversario(Aniversario aniversario){
+    public static boolean delAniversario(Aniversario aniversario){
         lista.remove(aniversario);
-        return lista;
+        return true;
     } 
 }

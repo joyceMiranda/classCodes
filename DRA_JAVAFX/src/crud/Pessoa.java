@@ -9,10 +9,11 @@ package crud;
  *
  * @author Jhoyce
  */
-public class PessoaJavaBean {
+public class Pessoa {
+    
     private String nome;
 
-    public PessoaJavaBean() {
+    public Pessoa() {
     }
 
     public String getNome() {

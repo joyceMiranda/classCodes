@@ -14,6 +14,7 @@ import javafx.beans.property.StringProperty;
 public class PessoaJavaBeanProperties {
 
     private final StringProperty nome = new SimpleStringProperty();
+    
     private final ObjectProperty<LocalDate> dataNascimento = new SimpleObjectProperty<>();
 
     public PessoaJavaBeanProperties(String nome, LocalDate dataNascimento) {

@@ -14,6 +14,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
+import javafx.beans.InvalidationListener;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -48,7 +49,6 @@ public class LayoutCRUDController implements Initializable {
     private TextField txtAniversarioPesquisado;
     
     ObservableList<Aniversario> observableList;
-    List<Aniversario> listaAniversarios ;
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     
@@ -65,7 +65,7 @@ public class LayoutCRUDController implements Initializable {
         
         //add listener de selecao da tabela
         tabelaAniversarios.getSelectionModel().selectedItemProperty().addListener(
-                new ServicoSelecionadoListener());
+                new AniversarioSelecionadoListener());
         
         //add listener de campo de busca
         txtAniversarioPesquisado.textProperty().addListener(
@@ -80,7 +80,7 @@ public class LayoutCRUDController implements Initializable {
         
     
     }    
-    
+   
     
     class ObservableListAlterada implements ListChangeListener{
         @Override
@@ -91,30 +91,19 @@ public class LayoutCRUDController implements Initializable {
         }
     }
     
-    class ServicoSelecionadoListener implements ChangeListener<Aniversario>{
+    
+    class AniversarioSelecionadoListener implements ChangeListener<Aniversario>{
         @Override
         public void changed(ObservableValue<? extends Aniversario> observable, 
                 Aniversario oldValue, Aniversario newValue) {
-                        //definindo binding
-            if (oldValue !=null) {
-                txtId.textProperty().unbindBidirectional(
-                        oldValue.idProperty());
-                txtNome.textProperty().unbindBidirectional(
-                        oldValue.nomeProperty());
-                txtDataAniversario.valueProperty().unbindBidirectional(
-                        oldValue.dataAniversarioProperty());
-            }
-            if (newValue !=null){
+                //definindo binding
                 txtId.textProperty().bindBidirectional(
                         newValue.idProperty(), NumberFormat.getNumberInstance());
                 txtNome.textProperty().bindBidirectional(
                         newValue.nomeProperty());
                 txtDataAniversario.valueProperty().bindBidirectional(
                         newValue.dataAniversarioProperty());
-                
-            }
         }
-        
     }
     
     
@@ -161,8 +150,7 @@ public class LayoutCRUDController implements Initializable {
     
     public void loadTabela(){
         //preenchendo tabela
-        listaAniversarios  = DataLoader.load();
-        observableList = FXCollections.observableArrayList(listaAniversarios);
+        observableList = FXCollections.observableArrayList(DataLoader.load());
         tabelaAniversarios.setItems(observableList);
     }
     
@@ -191,9 +179,9 @@ public class LayoutCRUDController implements Initializable {
                                 txtNome.getText(),
                                 txtDataAniversario.valueProperty().getValue() );
 
-            listaAniversarios = DataLoader.addAniversario(ss);
+            DataLoader.addAniversario(ss);
             observableList.setAll(
-                    FXCollections.observableArrayList(listaAniversarios));
+                    FXCollections.observableArrayList(DataLoader.lista));
         }
         limparCampos();
         JOptionPane.showMessageDialog(null, "Salvo!");
@@ -201,8 +189,8 @@ public class LayoutCRUDController implements Initializable {
     
     public void delServico(){
         Aniversario ss = (Aniversario) tabelaAniversarios.getSelectionModel().getSelectedItem();
-        listaAniversarios = DataLoader.delAniversario(ss);
-        observableList.setAll(FXCollections.observableArrayList(listaAniversarios));
+        DataLoader.delAniversario(ss);
+        observableList.setAll(FXCollections.observableArrayList(DataLoader.lista));
         limparCampos();
         JOptionPane.showMessageDialog(null, "Excluído!");
     } 
@@ -221,7 +209,34 @@ public class LayoutCRUDController implements Initializable {
     BONUS
 
 
-/*
+class AniversarioSelecionadoListener implements ChangeListener<Aniversario>{
+        @Override
+        public void changed(ObservableValue<? extends Aniversario> observable, 
+                Aniversario oldValue, Aniversario newValue) {
+                        //definindo binding
+            if (oldValue !=null) {
+                txtId.textProperty().unbindBidirectional(
+                        oldValue.idProperty());
+                txtNome.textProperty().unbindBidirectional(
+                        oldValue.nomeProperty());
+                txtDataAniversario.valueProperty().unbindBidirectional(
+                        oldValue.dataAniversarioProperty());
+            }
+            if (newValue !=null){
+                txtId.textProperty().bindBidirectional(
+                        newValue.idProperty(), NumberFormat.getNumberInstance());
+                txtNome.textProperty().bindBidirectional(
+                        newValue.nomeProperty());
+                txtDataAniversario.valueProperty().bindBidirectional(
+                        newValue.dataAniversarioProperty());
+                
+            }
+        }
+        
+    }
+
+
+
         dataColumn.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Aniversario, LocalDate>, ObservableValue<String>>() {
         @Override 
         public ObservableValue<String> call(TableColumn.CellDataFeatures<Aniversario, LocalDate> c) {
