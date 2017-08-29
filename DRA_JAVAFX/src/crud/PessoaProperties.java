@@ -11,13 +11,13 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-public class PessoaJavaBeanProperties {
+public class PessoaProperties {
 
     private final StringProperty nome = new SimpleStringProperty();
     
     private final ObjectProperty<LocalDate> dataNascimento = new SimpleObjectProperty<>();
 
-    public PessoaJavaBeanProperties(String nome, LocalDate dataNascimento) {
+    public PessoaProperties(String nome, LocalDate dataNascimento) {
         this.nome.set(nome);
         this.dataNascimento.set(dataNascimento);
     }
