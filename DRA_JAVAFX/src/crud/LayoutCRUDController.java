@@ -96,15 +96,28 @@ public class LayoutCRUDController implements Initializable {
         @Override
         public void changed(ObservableValue<? extends Aniversario> observable, 
                 Aniversario oldValue, Aniversario newValue) {
-                //definindo binding
+                        //definindo binding
+            if (oldValue !=null) {
+                txtId.textProperty().unbindBidirectional(
+                        oldValue.idProperty());
+                txtNome.textProperty().unbindBidirectional(
+                        oldValue.nomeProperty());
+                txtDataAniversario.valueProperty().unbindBidirectional(
+                        oldValue.dataAniversarioProperty());
+            }
+            if (newValue !=null){
                 txtId.textProperty().bindBidirectional(
                         newValue.idProperty(), NumberFormat.getNumberInstance());
                 txtNome.textProperty().bindBidirectional(
                         newValue.nomeProperty());
                 txtDataAniversario.valueProperty().bindBidirectional(
                         newValue.dataAniversarioProperty());
+                
+            }
         }
+        
     }
+
     
     
     class NumeroFormatter extends StringConverter<Double>{
