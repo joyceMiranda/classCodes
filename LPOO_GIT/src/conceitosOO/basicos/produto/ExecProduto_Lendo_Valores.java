@@ -1,5 +1,5 @@
 
-package OO.atributos;
+package conceitosOO.basicos.produto;
 
 //classe de execução
 

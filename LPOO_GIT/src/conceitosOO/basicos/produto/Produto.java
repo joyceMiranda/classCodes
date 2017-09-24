@@ -1,4 +1,4 @@
-package OO.atributos;
+package conceitosOO.basicos.produto;
 
 //nome da classe
 public class Produto {

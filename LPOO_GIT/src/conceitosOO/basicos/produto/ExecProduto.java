@@ -1,7 +1,8 @@
 
-package OO.atributos;
+package conceitosOO.basicos.produto;
 
 //classe de execução
+
 public class ExecProduto {
 
     public static void main(String args[]){
