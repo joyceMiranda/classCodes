@@ -1,4 +1,4 @@
-package interfaceGrafica.curso;
+package interfaceGrafica.netbeans.curso;
 
 public class Curso {
     
