@@ -8,6 +8,8 @@ package managedBean;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
+import javax.faces.component.UICommand;
+import javax.faces.event.ActionEvent;
 
 @ManagedBean
 public class ComponentesBean {
@@ -66,6 +68,18 @@ public class ComponentesBean {
     
     public void sayHello(){
         this.mensagem = "Hello!!";
+    }
+    
+    public void clique(ActionEvent e){
+        UICommand ui = (UICommand) e.getComponent();
+        System.out.println("Entrou!!!!!" + ui.getValue());
+        if(ui.getValue().equals("Clicado!")){
+            System.out.println("" + ui.getValue());
+            ui.setValue("Não Clicado!!");
+        }else{
+            System.out.println("" + ui.getValue());
+            ui.setValue("Clicado!");
+        }
     }
     
     public String adicionarTurma(Curso curso){

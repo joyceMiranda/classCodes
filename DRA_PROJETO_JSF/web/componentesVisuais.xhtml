@@ -67,13 +67,19 @@
            
            <br/><br/>
            
-           <p>**  <strong>h:commandButton</strong> </p>
+           <p>**  <strong>h:commandButton - action </strong> </p>
            <h:form>
            <h:commandButton value="Say Hello!!" action="#{componentesBean.sayHello}" />
            &nbsp;
            <h:outputText value="#{componentesBean.mensagem}" />   
            </h:form>
            
+           <br/><br/>
+           
+           <p>**  <strong>h:commandButton - actionListener </strong> </p>
+           <h:form>
+           <h:commandButton value="Não Clicado!!" actionListener="#{componentesBean.clique}" />
+           </h:form>
            <br/><br/>
            
            <p>**  <strong>h:link</strong> </p>

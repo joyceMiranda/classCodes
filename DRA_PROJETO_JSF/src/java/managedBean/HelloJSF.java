@@ -27,7 +27,7 @@ public class HelloJSF {
     }  
     
     public void exibeMensagem(){
-        mensagem = "Olá " + this.nome;
+        mensagem = "Olá, " + this.nome + "!";
     }
     
 }
