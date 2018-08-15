@@ -17,12 +17,9 @@ public class CursoCadastrarMVC {
     
     public static void main(String[] args){
         CursoCadastrarView theView = new CursoCadastrarView();
-        Curso curso = new Curso(); //camada model
-        
+       
         CursoCadastrarController theController = 
-                new CursoCadastrarController(theView, curso);
-        
-        theView.setVisible(true);
+                new CursoCadastrarController(theView);
     }
     
 }

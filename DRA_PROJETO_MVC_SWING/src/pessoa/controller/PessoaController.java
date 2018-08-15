@@ -3,19 +3,18 @@ package pessoa.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import pessoa.model.PessoaModel;
 import pessoa.view.PessoaView;
 
 public class PessoaController {
 
     private PessoaView theView;
-    private PessoaModel theModel;
     
-    public PessoaController(PessoaView theView, PessoaModel theModel){
-        this.theView = theView;
-        this.theModel = theModel;
-        
+    public PessoaController(PessoaView theView){
+        this.theView = theView;        
         theView.addBtnCalcIdadeListener(new CalcularIdadeListener());
+        theView.setVisible(true);
     }
     
     class CalcularIdadeListener implements ActionListener{
@@ -25,22 +24,12 @@ public class PessoaController {
             //capturar dataNascimento da tela
             String txtDataNascimento = theView.getTxtDataNascimento();
             
-            //converter String para LocalDate
-            String dia = txtDataNascimento.substring(0, 2);
-            System.out.println(dia);
-            String mes = txtDataNascimento.substring(3, 5);
-                        System.out.println(mes);
-
-            String ano = txtDataNascimento.substring(6, 10);
-                        System.out.println(ano);
-
-            
-            LocalDate dataNascimento = LocalDate.of(Integer.parseInt(ano), 
-                                       Integer.parseInt(mes), 
-                                       Integer.parseInt(dia));
-            
+            //recuperando LocalDate de uma String
+            DateTimeFormatter formatador =DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            LocalDate dataNascimento = LocalDate.parse(txtDataNascimento, formatador);
             
             //setar dataNascimento no modelo
+            PessoaModel theModel = new PessoaModel();
             theModel.setDataNascimento(dataNascimento);
             
             //recuperar anoAtual
@@ -49,11 +38,7 @@ public class PessoaController {
             //executa metodo calcIdade do modelo
             int idade = theModel.calcIdade(anoAtual);
             
-            theView.setIdade(Integer.toString(idade));
-            
-            
-            
-            
+            theView.setIdade(Integer.toString(idade));            
         
         }
     

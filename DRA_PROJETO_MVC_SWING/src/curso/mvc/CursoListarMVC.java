@@ -16,13 +16,10 @@ import curso.view.CursoListarView;
 public class CursoListarMVC {
     
     public static void main(String[] args){
-        Curso theModel = new Curso();
         CursoListarView theView = new CursoListarView();
         
         CursoListarController theController = 
-                new CursoListarController(theModel, theView);
-        
-        theView.setVisible(true);
+                new CursoListarController(theView);
     }
     
 }

@@ -12,14 +12,12 @@ import java.awt.event.ActionListener;
 
 public class ContaController {
     
-    ContaModel theModel;
     ContaView theView;
     
     public ContaController(ContaModel theModel, ContaView theView){
-        this.theModel = theModel;
         this.theView = theView;
-        
         theView.addBtnDepositarListener(new DepositarListener());
+        theView.setVisible(true);
     }
     
     class DepositarListener implements ActionListener{
@@ -30,6 +28,9 @@ public class ContaController {
             double valorOperacao = 
                     Double.parseDouble(theView.getTxtValorOperacao());
             
+            
+            //camada Model
+            ContaModel theModel = new ContaModel();
             theModel.setNumero(numero);
             boolean ok = theModel.depositarValor(valorOperacao);
             

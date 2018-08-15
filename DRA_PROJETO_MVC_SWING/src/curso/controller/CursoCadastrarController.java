@@ -14,12 +14,12 @@ import java.awt.event.ActionListener;
 public class CursoCadastrarController {
     
     CursoCadastrarView theView;
-    Curso curso; //camada model
     
-    public CursoCadastrarController(CursoCadastrarView theView, Curso curso){
+    public CursoCadastrarController(CursoCadastrarView theView){
         this.theView = theView;   
-        this.curso = curso;
         theView.addBtnCadastrarEventListener(new CadastrarCursoListener());
+        theView.setVisible(true);
+
     }
     
     class CadastrarCursoListener implements ActionListener{
@@ -28,6 +28,8 @@ public class CursoCadastrarController {
             String  sigla = theView.getTxtSigla();
             String  descricao = theView.getTxtDescricao();            
             
+            //camada modelo
+            Curso curso = new Curso();
             curso.setSigla(sigla);
             curso.setDescricao(descricao);
             

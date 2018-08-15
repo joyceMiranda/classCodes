@@ -10,25 +10,28 @@ import pedido.view.PedidoView;
 public class PedidoController {
     
     private PedidoView view;
-    private Pedido pedido; //camada de modelo
-
-    public PedidoController(PedidoView view, Pedido pedido) {
+    private Pedido pedido;
+    
+    public PedidoController(PedidoView view) {
         this.view = view;
-        this.pedido = pedido;
-        
+       
         //associando uma lista de itens ao pedido
+        pedido = new Pedido();
         pedido.setItens(new ArrayList());
         
         //adicionando acoes ao botao
         this.view.addActionBtnNovoPedido(new NovoPedidoAction());
         this.view.addActionBtnAddItem(new AdicionarItemAction());    
-        this.view.addActionBtnExcluirItens(new ExcluirItensAction());    
+        this.view.addActionBtnExcluirItens(new ExcluirItensAction());  
+        
+        this.view.setVisible(true);
         
     }
     
     public class NovoPedidoAction implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
+            //camada model
             pedido = new Pedido();
             pedido.setItens(new ArrayList());
             limparTodosCampos();

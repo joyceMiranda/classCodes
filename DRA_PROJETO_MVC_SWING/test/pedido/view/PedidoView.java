@@ -90,7 +90,7 @@ public class PedidoView extends javax.swing.JFrame {
 
         btnExcluirItens.setText("Excluir Itens");
 
-        btnNovoPedido.setText("Novo Pedido");
+        btnNovoPedido.setText("Salvar");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("TOTAL:");
@@ -151,11 +151,12 @@ public class PedidoView extends javax.swing.JFrame {
                                         .addComponent(jSeparator5))))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(233, 233, 233)
-                        .addComponent(jLabel2))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(210, 210, 210)
-                        .addComponent(btnNovoPedido)))
+                        .addComponent(jLabel2)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnNovoPedido)
+                .addGap(206, 206, 206))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

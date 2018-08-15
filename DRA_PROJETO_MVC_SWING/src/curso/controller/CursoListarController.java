@@ -18,16 +18,14 @@ import javax.swing.table.DefaultTableModel;
 
 public class CursoListarController {
     
-    Curso theModel;
     CursoListarView theView;
     Vector<Curso> listaCursos;
-    
-    
-    public CursoListarController(Curso theModel, CursoListarView theView){
-        this.theModel = theModel;
+        
+    public CursoListarController(CursoListarView theView){
         this.theView = theView;        
         theView.addBtnListarListener(new ListarCursoListener());
         theView.addTblCursosClickListener(new DetalharCursoListener());
+        theView.setVisible(true);
     }
     
     class ListarCursoListener implements ActionListener{
