@@ -4,7 +4,7 @@ import javax.persistence.EntityManager;
 
 public class GenericDAO <T> {
     
-    private EntityManager entityManager;
+    private final EntityManager entityManager;
     
     public GenericDAO(EntityManager entityManager){
         this.entityManager = entityManager;
