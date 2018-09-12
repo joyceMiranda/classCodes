@@ -11,7 +11,6 @@ public class GenericDAO <T> {
     }
     
     public void save(T obj){
-        System.out.println("salvando.." + obj.getClass().getName());
         try{
             entityManager.getTransaction().begin();
             entityManager.persist(obj);
@@ -19,10 +18,10 @@ public class GenericDAO <T> {
         }catch(Exception e){
             entityManager.getTransaction().rollback();
         }
+        System.out.println("salvando.." + obj.getClass().getName());
     }
     
     public void update(T obj){
-        System.out.println("alterando.." + obj.getClass().getName());
         try{
             entityManager.getTransaction().begin();
             entityManager.merge(obj);
@@ -30,10 +29,11 @@ public class GenericDAO <T> {
         }catch(Exception e){
             entityManager.getTransaction().rollback();
         }
+        System.out.println("alterando.." + obj.getClass().getName());
+
     }
     
     public void remove(Class<T> obj, Long id){
-        System.out.println("excluindo.." + obj.getName());
         T t = findById(obj, id);
         try{
             entityManager.getTransaction().begin();
@@ -42,6 +42,8 @@ public class GenericDAO <T> {
         }catch (Exception e) {
             entityManager.getTransaction().rollback();
         }
+        System.out.println("excluindo.." + obj.getName());
+
     }
     
     public T findById(Class<T> obj, Long id){

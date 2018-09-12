@@ -25,15 +25,7 @@ public class TesteCursoDAO {
         curso = dao.findById(idCursoInserido);
         System.out.println("-" + curso.getSigla() + " : " + curso.getDescricao());
         
-       //ConnectionFactory.closeEntityFactory();
-
-        dao = new CursoDAO(ConnectionFactory.getEntityManager());
-        //recuperando
-        curso = dao.findById(idCursoInserido);
-        System.out.println("-" + curso.getSigla() + " : " + curso.getDescricao());
-
-       ConnectionFactory.closeEntityFactory();
-        
+        ConnectionFactory.closeEntityFactory();
         
     }
     
