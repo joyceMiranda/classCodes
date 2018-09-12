@@ -6,7 +6,8 @@ import jpa.basics.model.Curso;
 public class TesteGenericDAO {
     public static void main(String[] args) {
         
-        GenericDAO<Curso> cursoDAO = new GenericDAO<Curso>(ConnectionFactory.getEntityManager());
+        GenericDAO<Curso> cursoDAO = new GenericDAO<>
+                                         (ConnectionFactory.getEntityManager());
         
         Curso curso = new Curso("TECQUIM", "TÉCNICO EM QUÍMICA");
         

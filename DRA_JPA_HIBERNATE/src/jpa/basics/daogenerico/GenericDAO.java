@@ -1,41 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package jpa.basics.daogenerico;
 
-import java.io.Serializable;
 import javax.persistence.EntityManager;
-import jpa.basics.connectionfactory.ConnectionFactory;
 
-/**
- *
- * @author Jhoyce
- */
-public class GenericDAO <T extends Serializable> {
+public class GenericDAO <T> {
     
-    private static EntityManager entityManager;
+    private EntityManager entityManager;
     
     public GenericDAO(EntityManager entityManager){
         this.entityManager = entityManager;
-    }
-    
-    public T findById(Class<T> clazz, Long id){
-        System.out.println("bucando por id.." + clazz.getName());
-        return entityManager.find(clazz, id);
-    }
-    
-    public void remove(Class<T> clazz, Long id){
-        System.out.println("excluindo.." + clazz.getName());
-        T t = findById(clazz, id);
-        try{
-            entityManager.getTransaction().begin();
-            entityManager.remove(t);
-            entityManager.getTransaction().commit();
-        }catch (Exception e) {
-            entityManager.getTransaction().rollback();
-        }
     }
     
     public void save(T obj){
@@ -58,8 +30,23 @@ public class GenericDAO <T extends Serializable> {
         }catch(Exception e){
             entityManager.getTransaction().rollback();
         }
-}
-
-
+    }
+    
+    public void remove(Class<T> obj, Long id){
+        System.out.println("excluindo.." + obj.getName());
+        T t = findById(obj, id);
+        try{
+            entityManager.getTransaction().begin();
+            entityManager.remove(t);
+            entityManager.getTransaction().commit();
+        }catch (Exception e) {
+            entityManager.getTransaction().rollback();
+        }
+    }
+    
+    public T findById(Class<T> obj, Long id){
+        System.out.println("bucando por id.." + obj.getName());
+        return entityManager.find(obj, id);
+    }
     
 }
