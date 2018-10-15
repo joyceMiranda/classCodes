@@ -55,8 +55,7 @@ public class ColetorWebFuncionando_CaseAcademico {
                 Elements nomes = docDiario.select("div > a[tabindex='-1']");
                 for (int i = 0; i < nomes.size(); i++) {
                     System.out.println(""+matriculas.get(i).text() + " : " + nomes.get(i).text());
-                }
-                
+                }                
             }
             
         }
