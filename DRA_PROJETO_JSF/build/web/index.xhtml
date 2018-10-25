@@ -7,12 +7,12 @@
     </h:head>
     <h:body>
         <h:form>
-            <h:outputLabel for="nome" value="Digite seu nome:"/>
+            <h:outputLabel value="Digite seu nome:"/>
             <h:inputText id="nome" value="#{helloJSF.nome}"/>
-            &nbsp;
-            <h:commandButton value="Exibe Mensagem" action="#{helloJSF.exibeMensagem}"/>
-            <br/><br/>
-            <h:outputLabel for="nome" value="#{helloJSF.mensagem}" rendered="#{not empty helloJSF.nome}"/>
+            <h:commandButton value="Exibe Mensagem" 
+                             action="#{helloJSF.exibeMensagem}"/>
+            <h:outputLabel value="#{helloJSF.mensagem}" 
+                           rendered="#{not empty helloJSF.nome}"/>
         </h:form>
     </h:body>
 </html>
