@@ -17,7 +17,7 @@ public class TesteGenericDAO {
         funcionarios.add(new Funcionario_ManyToOne("Beltrano"));
         funcionarios.add(new Funcionario_ManyToOne("Ciclano"));
         
-        Departamento depto = new Departamento("Joyce", funcionarios);
+        Departamento depto = new Departamento("DAIC", funcionarios);
         deptoDAO.save(depto);
         
         ConnectionFactory.closeEntityFactory();

@@ -15,9 +15,36 @@ public class Estado_Bidirecional {
     
     @OneToOne(cascade = CascadeType.PERSIST)
     private Governador_Bidirecional governador;
+    
+    
+    public Estado_Bidirecional(){}
 
     public Estado_Bidirecional(String nome, Governador_Bidirecional governador) {
         this.nome = nome;
+        this.governador = governador;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Governador_Bidirecional getGovernador() {
+        return governador;
+    }
+
+    public void setGovernador(Governador_Bidirecional governador) {
         this.governador = governador;
     }
     

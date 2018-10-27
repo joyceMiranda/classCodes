@@ -3,7 +3,6 @@ package dra_jpa_hibernate.relacionamento.OneToMany;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
 public class Funcionario_ManyToOne {

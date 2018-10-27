@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 
@@ -17,7 +18,6 @@ public class Departamento {
     private String nome;
     
     @OneToMany(cascade = CascadeType.PERSIST)
-    @JoinTable(name = "depto_func")
     private Collection<Funcionario_ManyToOne> funcionarios;
 
     public Departamento(String nome, Collection<Funcionario_ManyToOne> funcionarios) {

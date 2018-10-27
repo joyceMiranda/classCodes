@@ -1,27 +1,37 @@
 package dra_jpa_hibernate.relacionamento.OneToOne.bidirecional;
 
-import dra_jpa_hibernate.relacionamento.OneToOne.cascade.*;
 import jpa.basics.daogenerico.*;
 import jpa.basics.connectionfactory.ConnectionFactory;
 
 public class TesteGenericDAO {
     public static void main(String[] args) {
         
-        GenericDAO<Governador_Cascade> governadorDAO = 
-                new GenericDAO<>
-                    (ConnectionFactory.getEntityManager());
+        try{
+            
+            Governador_Bidirecional governador = new Governador_Bidirecional("Fulaninho");
         
-        Governador_Cascade governador = new Governador_Cascade("Fulaninho");
+            GenericDAO<Estado_Bidirecional> estadoDAO = 
+                    new GenericDAO<>
+                        (ConnectionFactory.getEntityManager());
+
+            Estado_Bidirecional estado = 
+                    new Estado_Bidirecional("Amazonas", governador);
+            estadoDAO.save(estado);
+
+            System.out.println("- Governador : " + estado.getGovernador().getNome());
+
+            GenericDAO<Governador_Bidirecional> govDAO = 
+                    new GenericDAO<>
+                        (ConnectionFactory.getEntityManager());
+
+            governador = govDAO.findById(Governador_Bidirecional.class, 1L);
+            System.out.println("- Estado : " + governador.getEstado().getNome());
+
+        }finally{
+             ConnectionFactory.closeEntityFactory();
+        }
         
-        GenericDAO<Estado_Cascade> pessoaDAO = 
-                new GenericDAO<>
-                    (ConnectionFactory.getEntityManager());
-        
-        Estado_Cascade estado = 
-                new Estado_Cascade("Amazonas", governador);
-        pessoaDAO.save(estado);
-        
-        ConnectionFactory.closeEntityFactory();
+       
         
         
     }

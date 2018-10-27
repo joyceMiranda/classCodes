@@ -21,6 +21,19 @@ public class GenericDAO <T> {
         System.out.println("salvando.." + obj.getClass().getName());
     }
     
+    /*O método refresh() atualiza o estado da instância a partir do banco de dados. 
+    ou seja, copia os dados do banco e joga nos atributos da instância.*/
+    public void refresh(T obj){
+        try{
+            entityManager.getTransaction().begin();
+            entityManager.refresh(obj);
+            entityManager.getTransaction().commit();
+        }catch(Exception e){
+            entityManager.getTransaction().rollback();
+        }
+        System.out.println("atualizando.." + obj.getClass().getName());
+    }
+    
     public void update(T obj){
         try{
             entityManager.getTransaction().begin();
@@ -49,6 +62,10 @@ public class GenericDAO <T> {
     public T findById(Class<T> obj, Long id){
         System.out.println("bucando por id.." + obj.getName());
         return entityManager.find(obj, id);
+    }
+    
+    public void closeConnection(){
+        entityManager.close();
     }
     
 }
