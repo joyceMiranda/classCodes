@@ -1,5 +1,4 @@
 <?php
-
 	class Produto{
 		
 		private $id;
@@ -22,10 +21,6 @@
 		
 		public function getValor(){
 			return $this->valor;
-		}
-		
+		}	
 	}
- 
-
-
 ?>
