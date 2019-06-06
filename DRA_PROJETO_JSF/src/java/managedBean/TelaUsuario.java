@@ -7,7 +7,7 @@ import javax.faces.bean.ManagedProperty;
 @ManagedBean
 public class TelaUsuario {
 
-    private Usuario user ;
+    private Usuario user;
     @ManagedProperty(value = "#{listaUsuarioBean}")
     private ListaUsuarioBean listaUsuarioBean;
 

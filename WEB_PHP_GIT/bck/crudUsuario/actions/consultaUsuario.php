@@ -19,7 +19,7 @@
 			     "idUsuario=".$usr['idusuario']."' >Alterar</a>&nbsp;";
 			echo "<a href='../actions/excluiUsuario.php?".
 			     "idUsuario=".$usr['idusuario']."' ".
-				 "onclick='confirmaExclusao()'>Excluir</a>";
+				 "onclick='return confirmaExclusao()'>Excluir</a>";
 			echo "</td>";
 			echo "<tr>";
 		 }

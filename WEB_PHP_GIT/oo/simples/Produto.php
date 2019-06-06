@@ -2,16 +2,14 @@
 class Produto
 {
 	// atributos
-	public $codigo;
-
 	public $nome;
 
 	public $preco;
 
 	// métodos
-	public function calculaDesconto($porcento)
+	public function calcularDesconto($percentualDesconto)
 	{
-		return $this->preco * $porcento/100;
+		return $this->preco * $percentualDesconto/100;
 	}
 }
 ?>
