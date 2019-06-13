@@ -7,8 +7,8 @@
 <!-- the Compile on Save feature is turned off for the project. -->
 <!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
 <!-- in the project's Project Properties dialog box.-->
-<project name="SITE_SPRING_WEB_TAREFAS" default="default" basedir=".">
-    <description>Builds, tests, and runs the project SITE_SPRING_WEB_TAREFAS.</description>
+<project name="WEB_SPRING_BASIC_TAREFAS" default="default" basedir=".">
+    <description>Builds, tests, and runs the project WEB_SPRING_BASIC_TAREFAS.</description>
     <import file="nbproject/build-impl.xml"/>
     <!--
 

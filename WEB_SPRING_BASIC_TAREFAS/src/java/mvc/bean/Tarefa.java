@@ -1,10 +1,9 @@
 package mvc.bean;
 
-import java.io.Serializable;
 import java.util.Calendar;
 import org.springframework.format.annotation.DateTimeFormat;
 
-public class Tarefa implements Serializable{
+public class Tarefa{
     private Long id;
     private String descricao;
     private boolean finalizado;
