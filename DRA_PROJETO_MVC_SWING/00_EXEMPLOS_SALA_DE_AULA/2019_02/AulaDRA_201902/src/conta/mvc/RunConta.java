@@ -4,7 +4,6 @@ import conta.controller.ContaController;
 import conta.view.TelaConta;
 
 
-
 public class RunConta {
 
     public static void main(String[] args) {
