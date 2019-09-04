@@ -7,18 +7,8 @@ package oo.polimorfismo;
 
 public class Funcionario {
 
-    private int codigo;
     private String nome;
     private double salarioBruto;
-    private String funcao;
-
-    public int getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
-    }
 
     public String getNome() {
         return nome;
@@ -35,17 +25,9 @@ public class Funcionario {
     public void setSalarioBruto(double salarioBruto) {
         this.salarioBruto = salarioBruto;
     }
-
-    public String getFuncao() {
-        return funcao;
-    }
-
-    public void setFuncao(String funcao) {
-        this.funcao = funcao;
-    }
     
     public double calcSalarioLiquido(double desconto){
-        return this.salarioBruto - desconto;
+        return this.salarioBruto * desconto * 0.01;
     }
     
     

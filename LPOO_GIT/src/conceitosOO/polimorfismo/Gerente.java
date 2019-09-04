@@ -22,8 +22,7 @@ public class Gerente extends Funcionario {
     }
     
     public double calcSalarioLiquido(double desconto){
-        return this.getSalarioBruto() 
-                - desconto + this.bonus;
+        return super.calcSalarioLiquido(desconto) + this.bonus;
     }
     
     
