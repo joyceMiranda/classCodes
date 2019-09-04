@@ -1,4 +1,5 @@
-package oo.polimorfismo;
+package conceitosOO.polimorfismo;
+
 
 public class Gerente extends Funcionario {
     

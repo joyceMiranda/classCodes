@@ -1,28 +1,31 @@
+package conceitosOO.polimorfismo;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package oo.polimorfismo;
 
 public class ExecFuncionario {
     
     public static void main(String args[]){
         
+        FolhaPagamento fp = new FolhaPagamento("01/2000");
+        
         Professor p = new Professor();
-        p.setNome("Joyce");
+        p.setNome("Fulana");
         p.setSalarioBruto(1000.00);
-        double sp = p.calcSalarioLiquido(100.00);
+        
+        fp.pagar(p, 10);
         
         Gerente g = new Gerente();
-        g.setNome("Joyce");
+        g.setNome("Beltrana");
         g.setSalarioBruto(1000.00);
         g.setBonus(500.00);
-        double sg = g.calcSalarioLiquido(100.00);
         
-        System.out.println(
-                "Salário Professor: " + sp + "\n"
-              + "Salário Gerente: " + sg);
+        fp.pagar(g, 10);
+        
+        
         
     }
     

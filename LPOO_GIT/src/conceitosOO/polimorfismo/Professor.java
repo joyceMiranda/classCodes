@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package oo.polimorfismo;
+package conceitosOO.polimorfismo;
 
-/**
- *
- * @author Joyce
- */
 public class Professor extends Funcionario {
     
     private String area;
