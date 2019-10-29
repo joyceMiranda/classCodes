@@ -32,11 +32,6 @@ public class TCPServer {
                     new InputStreamReader(
                         connectionSocket.getInputStream()));
             
-            //cria stream de saída, ligado ao socket
-            DataOutputStream outToClient =
-                new DataOutputStream(
-                        connectionSocket.getOutputStream());
-            
             //lê linha do socket
             clientSentence = inFromClient.readLine();
             
@@ -45,6 +40,11 @@ public class TCPServer {
             System.out.println("processing..");
 
             capitalizedSentence = clientSentence.toUpperCase() + '\n';
+            
+            //cria stream de saída, ligado ao socket
+            DataOutputStream outToClient =
+                new DataOutputStream(
+                        connectionSocket.getOutputStream()); 
             
             //escreve linha para o socket
             outToClient.writeBytes(capitalizedSentence); 
