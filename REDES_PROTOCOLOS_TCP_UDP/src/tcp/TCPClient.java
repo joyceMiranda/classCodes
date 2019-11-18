@@ -5,46 +5,49 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
+import java.util.Scanner;
 
 public class TCPClient {
+    
     public static void main(String[] args) throws IOException {
         
-        System.out.println("==CLIENT STARTED==");
-        
-        String sentence;
-        String modifiedSentence;
-        
+        System.out.println("==CLIENT UP==");
+        String sentence = "";
         do{
-            //cria stream de entrada
-			System.out.print("\nINPUT TEXT: ");
-
-            BufferedReader inFromUser = 
-                    new BufferedReader(new InputStreamReader(System.in));
-
-            sentence = inFromUser.readLine(); 
+            //solicitando info do cliente
+            System.out.print("\nINPUT TEXT: ");
             
-            if(sentence.equalsIgnoreCase("EXIT")) break;
+            Scanner scan = new Scanner(System.in);
+            sentence = scan.nextLine();
             
-            //cria socket, conecta ao servidor
-            Socket clientSocket = new Socket("localhost", 6789);
-
+            if(sentence.equalsIgnoreCase("exit")) break;
+            
+            //cria socket, conecta servidor
+            Socket clientSocket = new Socket("192.168.43.7", 6789);
+            
             //cria stream de saída ligado ao socket
-            DataOutputStream outToServer =
+            DataOutputStream outToServer = 
                     new DataOutputStream(clientSocket.getOutputStream());
-
+            
             //envia linha para o servidor
-            outToServer.writeBytes(sentence + '\n');
+            outToServer.writeBytes(sentence + "\n");
             
-            //cria stream de entrada ligado ao socket
-            BufferedReader inFromServer =  new BufferedReader(
-                    new InputStreamReader(clientSocket.getInputStream()));
-
-            modifiedSentence = inFromServer.readLine();
-
-            System.out.println("OUTPUT FROM SERVER: " + modifiedSentence);
+            //cria stream de entrada, ligado ao socket
+            //recuperar retorno do servidor
+            BufferedReader inFromServer = 
+                new BufferedReader(
+                    new InputStreamReader(
+                        clientSocket.getInputStream()));
             
-            clientSocket.close(); 
-
-        }while(!sentence.equalsIgnoreCase("EXIT"));
+            String modifiedSentence = inFromServer.readLine();
+            
+            System.out.println("\nOUTPUT SERVER: " + modifiedSentence);
+            
+            clientSocket.close();
+            
+            
+        }while(!sentence.equalsIgnoreCase("exit"));
+        
     }
+    
 }
