@@ -16,10 +16,11 @@ public class TCPClient {
         
         do{
             //cria stream de entrada
+			System.out.print("\nINPUT TEXT: ");
+
             BufferedReader inFromUser = 
                     new BufferedReader(new InputStreamReader(System.in));
 
-            System.out.print("\nINPUT TEXT: ");
             sentence = inFromUser.readLine(); 
             
             if(sentence.equalsIgnoreCase("EXIT")) break;
