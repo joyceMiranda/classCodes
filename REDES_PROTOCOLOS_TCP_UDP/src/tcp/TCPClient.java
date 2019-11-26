@@ -1,4 +1,4 @@
-package tcp;
+package socket_tcp;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -10,44 +10,40 @@ import java.util.Scanner;
 public class TCPClient {
     
     public static void main(String[] args) throws IOException {
-        
-        System.out.println("==CLIENT UP==");
+        System.out.println("CLIENT UP..");
         String sentence = "";
-        do{
-            //solicitando info do cliente
+        do{            
+            Scanner scan = new Scanner(System.in);            
             System.out.print("\nINPUT TEXT: ");
-            
-            Scanner scan = new Scanner(System.in);
             sentence = scan.nextLine();
             
             if(sentence.equalsIgnoreCase("exit")) break;
             
-            //cria socket, conecta servidor
-            Socket clientSocket = new Socket("192.168.43.7", 6789);
+            //criando socket de conexao com o servidor
+            Socket clientSocket = new Socket("10.100.37.62", 6789);
             
-            //cria stream de saída ligado ao socket
+            //criando stream de saída ligado ao socket
             DataOutputStream outToServer = 
-                    new DataOutputStream(clientSocket.getOutputStream());
+                    new DataOutputStream(
+                            clientSocket.getOutputStream());
             
-            //envia linha para o servidor
+            //enviando linha pro server
             outToServer.writeBytes(sentence + "\n");
             
-            //cria stream de entrada, ligado ao socket
-            //recuperar retorno do servidor
-            BufferedReader inFromServer = 
-                new BufferedReader(
-                    new InputStreamReader(
-                        clientSocket.getInputStream()));
+            //criando stream de entrada ligado ao socket
+            BufferedReader inFromServer =
+                    new BufferedReader(
+                        new InputStreamReader(
+                                clientSocket.getInputStream()));
             
-            String modifiedSentence = inFromServer.readLine();
+            //recuperando resposta do server
+            String capitalizedSentence = inFromServer.readLine();
             
-            System.out.println("\nOUTPUT SERVER: " + modifiedSentence);
+            System.out.println("OUTPUT SERVER: " + capitalizedSentence);
             
             clientSocket.close();
             
-            
         }while(!sentence.equalsIgnoreCase("exit"));
-        
     }
     
 }
